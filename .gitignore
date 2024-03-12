@@ -1,0 +1,4 @@
+#Ignore files:
+war.py
+*.csv
+*.txt
