@@ -6,7 +6,7 @@ Players: 2 (26 cards each)
 
 
 0. start game. prompt for player's name or names
-   - can play against Computer or other player: prompt for option
+   - can play against Computer or other player: prompt for names
 
 2. initialize card deck and shuffle it
 
