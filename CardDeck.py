@@ -1,5 +1,5 @@
 
-class Cards:
+class CardDeck:
     def __init__(self): 
         self.cardDeck = self.card_deck()  
     
