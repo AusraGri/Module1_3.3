@@ -7,12 +7,13 @@ class Card:
         self.value = value
 
     def __str__(self) -> str:
-        return f"{self.sign}{self.rank}"
+        return f"{self.rank}{self.sign}"
 
 
-class CardDeck:
-    def __init__(self): 
-        self.cardDeck = self.card_deck()  
+class CardDeck(Card):
+    def __init__(self):  
+        self.cardDeck = self.card_deck() 
+        self.player_hands = ""
     
     def card_deck(self):
         signs = ["\u2664", "\u2661", "\u2662", "\u2667"]
@@ -26,20 +27,42 @@ class CardDeck:
         return card_deck
 
     def __str__(self):
-        """Only testing purpose, will return error"""
-        for card in self.cardDeck:
-            print(card)
+        return self.player_hands
     
     def deck_shuffle(self):
         shuffle(self.cardDeck)
 
     def card_split(self, number_of_players):
-        # return deck1, deck2...
-        pass
+        if int(number_of_players)>0 and int(number_of_players)%2 == 0:
+            players = int(number_of_players)
+            hand_size = len(self.cardDeck) // players
+            hands = []
+            start = 0
+            for _ in range(players):
+                hand_end = start + hand_size 
+                hands.append(self.cardDeck[start:hand_end])
+                start = hand_end + 1
+            # self.player_hands = hands
+            return hands
+        else:
+            print("Error: Wrong number as parameter")
+
+    
  
     def card_compare(self, card1, card2):
         pass
 
 
-#c = Cards()
-#print(c)
+c = CardDeck()
+hands = c.card_split(4)
+player1 = hands[0]
+player2 = hands[1]
+print(len(player1))
+print(len(player2))
+
+# print(hands)
+# for i, hand in enumerate(hands, start=1):
+#     print(f"Player {i} cards:")
+#     for card in hand:
+#         print(card)
+#     print() 
