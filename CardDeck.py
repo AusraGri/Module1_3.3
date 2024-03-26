@@ -46,8 +46,3 @@ class CardDeck(Card):
             print("Error: Wrong number as parameter")
         
 
-
-# c = CardDeck()
-# hand1, hand2 = c.card_split()
-# print(len(hand1))
-# print(len(hand2))
