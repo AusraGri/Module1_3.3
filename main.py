@@ -7,24 +7,24 @@ def main():
     player_1 = get_player_name(1)
     player_2 = get_player_name(2)
     gameplay(player_1, player_2)
-    
+
 
 def get_player_name(n):
     while True:
         try:
             name = input(f"Player {n} name: ")
             if not name:
-                raise ValueError("Invalid name input") 
+                raise ValueError("Invalid name input")
             if len(name) > 50:
                 raise ValueError("Invalid name. Please use shorter name")
             return name
         except ValueError:
-            raise 
-    
-    
+            raise
+
+
 def compare_cards(card1, card2):
     cards = []
-    sep = f"{"-" * 20}"
+    sep = f"{" - " * 20}"
     if card1.value > card2.value:
         print(sep)
         print(f"{card1} is higher than {card2}")
@@ -84,29 +84,13 @@ def gameplay(name_1, name_2):
             hidden_card2 = player2.lay_card()
             print(f"{name_1} lays one hidden card")
             print(f"{name_2} lays one hidden card")
-            cards +=[hidden_card1, hidden_card2]
-
-
+            cards += [hidden_card1, hidden_card2]
 
     if len(player1.hand) > len(player2.hand):
         print(f"Congratulations! The winner is {name_1}")
     else:
         print(f"Congratulations! The winner is {name_2}")
 
-          
 
-
-
-
-
-# c = CardDeck()
-# c.card_deck()
-# c.deck_shuffle()
-# p1_hand, p2_hand = c.card_split()
-# player1 = Player("name_1", p1_hand)
-# player2 = Player("name_2", p2_hand)
-# print(len(player1.hand))
-
-
-if __name__=="__main__":
+if __name__ == "__main__":
     main()
